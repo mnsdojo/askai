@@ -3,7 +3,7 @@
   "name": "askai",
   "version": "1.0",
   "description": "Quick access to various ai assitant from context menu ",
-  "permissions": ["contextmenus"],
+  "permissions": ["contextMenus"],
   "background": {
     "service_worker": "background.js"
   }
