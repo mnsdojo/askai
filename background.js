@@ -34,6 +34,13 @@ chrome.runtime.onInstalled.addListener(() => {
     title: "Ask Phind",
     contexts: ["selection"],
   });
+  // Add DeepSeek Chat option
+  chrome.contextMenus.create({
+    id: "askDeepSeek",
+    parentId: "aiTools",
+    title: "Ask DeepSeek",
+    contexts: ["selection"],
+  });
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
@@ -44,6 +51,8 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     askGemini: `https://gemini.google.com/app?message=${selectedText}`,
     askPerplexity: `https://www.perplexity.ai/?q=${selectedText}`,
     askPhind: `https://www.phind.com/search?q=${selectedText}`,
+    // Add DeepSeek Chat URL
+    askDeepSeek: `https://www.deepseek.com/chat?q=${selectedText}`, // Replace with the actual DeepSeek Chat URL
   };
   if (urls[info.menuItemId]) {
     chrome.tabs.create({ url: urls[info.menuItemId] });
